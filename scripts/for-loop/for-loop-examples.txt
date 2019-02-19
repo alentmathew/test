@@ -1,0 +1,53 @@
+for loop syntax:
+
+for i in $(ls demo) ; do echo $i ; done
+
+
+for i in $(ls demo) ; do sh license.sh $i ; done
+
+
+for i in $(ls -p /root/al-test/yaml/  |  grep -v  / | grep -v /) ; do sh license.sh /root/al-test/yaml/$i ; done
+
+
+
+
+ls -p | grep -v /
+
+
+
+for i in $(ls /root/al-test/yaml/services/dz-qa-automation) ; do sh license.sh /root/al-test/yaml/services/dz-qa-automation/$i ; done
+
+
+Nested for loop
+
+
+
+for i in $(ls | grep dz-aggregation-processor- | xargs) ; do for j in $(ls $i); do sh ../../license.sh $i/$j ; done; done
+
+for i in $(ls | grep dz-admin-backend | xargs) ; do for j in $(ls $i); do sh ../../license.sh $i/$j ; done; done
+
+for i in $(ls | grep dz-admin-frontend | xargs) ; do for j in $(ls $i); do sh ../../license.sh $i/$j ; done; done
+
+for i in $(ls | grep dz-admin-frontend-v2 | xargs) ; do for j in $(ls $i); do sh ../../license.sh $i/$j ; done; done
+
+for i in $(ls | grep dz-cache-wrapper | xargs) ; do for j in $(ls $i); do sh ../../license.sh $i/$j ; done; done
+
+for i in $(ls | grep dz-configuration-enricher | xargs) ; do for j in $(ls $i); do sh ../../license.sh $i/$j ; done; done
+
+for i in $(ls | grep dz-connectors | xargs) ; do for j in $(ls $i); do sh ../../license.sh $i/$j ; done; done
+
+for i in $(ls | grep dz-message-broker | xargs) ; do for j in $(ls $i); do sh ../../license.sh $i/$j ; done; done
+
+for i in $(ls | grep dz-connector-admin | xargs) ; do for j in $(ls $i); do sh ../../license.sh $i/$j ; done; done
+
+for i in $(ls | grep dz-analytics-proxy | xargs) ; do for j in $(ls $i); do sh ../../license.sh $i/$j ; done; done
+
+for i in $(ls | grep dz-automation-engine | xargs) ; do for j in $(ls $i); do sh ../../license.sh $i/$j ; done; done
+
+
+
+
+for i in $(ls | grep dz-aggregation-processor- | xargs) ; do for j in $(ls $i); do sed -i "s|image: datazoom/aggregation-processor:aggnew-0.0.168|image: datazoom/aggregation-processor:develop-0.0.178|g" $i/$j ; done; done
+
+
+
